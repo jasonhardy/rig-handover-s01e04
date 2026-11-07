@@ -15,6 +15,8 @@ export type NightDigest = {
   night: string;
   // One row per job, sorted by job for both HTML and JSON consumers.
   rows: DigestRow[];
+  // Counts of valid run events, including earlier statuses for jobs that later succeeded.
+  counts: Record<DigestStatus, number>;
   // Lines that could not be parsed or did not match the run-log shape.
   badLines: number;
 };

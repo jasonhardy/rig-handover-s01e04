@@ -8,6 +8,7 @@ describe('run log reader', () => {
   it('aggregates the fixture and counts its bad line', () => {
     const digest = readNight('runs', '2026-10-28');
     expect(digest?.badLines).toBe(1);
+    expect(digest?.counts).toEqual({ ok: 10, retry: 4, fail: 1 });
     expect(digest?.rows.map((row) => row.job)).toEqual([
       'digest/render',
       'fixtures/refresh',
@@ -35,6 +36,7 @@ describe('run log reader', () => {
       expect(readNight(runsDir, '2026-10-28')).toEqual({
         night: '2026-10-28',
         rows: [],
+        counts: { ok: 0, retry: 0, fail: 0 },
         badLines: 0,
       });
       writeFileSync(join(runsDir, '2026-10-28.jsonl'), 'not JSON\n');

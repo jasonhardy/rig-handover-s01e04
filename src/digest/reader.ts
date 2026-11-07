@@ -46,6 +46,7 @@ export const readNight: ReadNight = (runsDir, night): NightDigest | null => {
   }
 
   const rows = new Map<string, DigestRow>();
+  const counts = { ok: 0, retry: 0, fail: 0 };
   let badLines = 0;
   const lines = source.split(/\r?\n/);
   if (lines.at(-1) === '') lines.pop();
@@ -56,6 +57,7 @@ export const readNight: ReadNight = (runsDir, night): NightDigest | null => {
       badLines++;
       continue;
     }
+    counts[event.status]++;
 
     const current = rows.get(event.job);
     if (!current) {
@@ -83,5 +85,5 @@ export const readNight: ReadNight = (runsDir, night): NightDigest | null => {
     }
   }
 
-  return { night, rows: [...rows.values()].sort((a, b) => a.job.localeCompare(b.job)), badLines };
+  return { night, rows: [...rows.values()].sort((a, b) => a.job.localeCompare(b.job)), counts, badLines };
 };
