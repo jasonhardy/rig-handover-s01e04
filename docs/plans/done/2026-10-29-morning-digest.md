@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-11-06
 ---
 
 # Morning digest
@@ -77,3 +78,18 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Plan section |
+|---|-------|--------------|
+| [1](https://github.com/jasonhardy/rig-handover-s01e04/issues/1) | Define digest row and reader contract | 1 |
+| [2](https://github.com/jasonhardy/rig-handover-s01e04/issues/2) | Read and aggregate a night's run log | 1 |
+| [3](https://github.com/jasonhardy/rig-handover-s01e04/issues/3) | Render the digest page | 2a |
+| [4](https://github.com/jasonhardy/rig-handover-s01e04/issues/4) | Serve the digest JSON | 2b |
+| [5](https://github.com/jasonhardy/rig-handover-s01e04/issues/5) | Link nights from the status board | 2c |
+| [6](https://github.com/jasonhardy/rig-handover-s01e04/issues/6) | Test digest routes | 2d |
+| [7](https://github.com/jasonhardy/rig-handover-s01e04/issues/7) | Publish the review preview | 3 |
+| [8](https://github.com/jasonhardy/rig-handover-s01e04/issues/8) | Remove the public marker and finish the plan | 4 |
+
+After review, the public preview was replaced at the same link with the lane marker unset.
